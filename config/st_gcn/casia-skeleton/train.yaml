@@ -1,0 +1,43 @@
+work_dir: ./work_dir/recognition/casia_skeleton/ST_GCN
+
+# feeder
+feeder: feeder.feeder.Feeder
+train_feeder_args:
+  random_choose: False
+  random_move: False
+  window_size: 260
+  data_path: /home/bird/disk2/mydisk1104/xuke/skeleton-data/casia-skeleton/train62-090-090_data.npy
+  label_path: /home/bird/disk2/mydisk1104/xuke/skeleton-data/casia-skeleton/train62-090-090_label.pkl
+test_feeder_args:
+  data_path: /home/bird/disk2/mydisk1104/xuke/skeleton-data/casia-skeleton/probe62-000nm-000_data.npy
+  label_path: /home/bird/disk2/mydisk1104/xuke/skeleton-data/casia-skeleton/probe62-000nm-000_label.pkl
+
+# model
+model: net.st_gcn_casia.Model
+model_args:
+  in_channels: 3
+  num_class: 62
+  edge_importance_weighting: True
+  graph_args:
+    layout: 'openpose'
+    # layout: 'casia'
+    strategy: 'spatial'
+    max_hop: 1
+
+# training
+device: [1]
+batch_size: 40
+test_batch_size: 248
+
+#optim
+base_lr: 0.001
+step: [10,20,40,60]
+num_epoch: 200
+save_interval: 1
+eval_interval: 100
+#weight_decay: 0.7
+#weights: /home/bird/xuke/st-gcn-master/work_dir/recognition/casia_skeleton/ST_GCN/epoch13_model.pt
+#weights: /home/bird/xuke/st-gcn-master/models/st_gcn.kinetics.pt
+
+
+
