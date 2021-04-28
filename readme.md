@@ -70,8 +70,8 @@ $STGCN PATH$/config/st_gcn/
     -064-nm-05-000
     ...
 
-2)Modify the input path and output path in ./tools/casia_gendata.py. Run python ./tools/casia_gendata.py
-3) Modify $STGCN PATH$/config/st_gcn/casia-skeleton/train.yaml
+2)Modify the input path and output path in ./tools/casia_gendata.py. Run python ./tools/casia_gendata.py to prepare the dataset
+3)Modify $STGCN PATH$/config/st_gcn/casia-skeleton/train.yaml
 4)Train model
 python main.py recognition --phase train -c $STGCN PATH$/config/st_gcn/casia-skeleton/train.yaml
 5) Modify $STGCN PATH$/config/st_gcn/casia-skeleton/test.yaml
