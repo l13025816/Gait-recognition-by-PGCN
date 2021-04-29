@@ -141,8 +141,8 @@ class Graph():
                 if hop == 0:
                     A.append(a_root)
                 else:
-                    #A.append(a_root + a_close)
-                    A.append(a_close)
+                    A.append(a_root + a_close)
+                    #A.append(a_close)
                     A.append(a_further)
 
             A = np.stack(A)
